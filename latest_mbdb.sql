@@ -17,6 +17,65 @@
 /*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
 --
+-- Table structure for table `aliases`
+--
+
+DROP TABLE IF EXISTS `aliases`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `aliases` (
+  `aliasID` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Alias ID',
+  `aliasType` enum('artist','title') NOT NULL COMMENT '類型：artist 或 title',
+  `canonicalName` varchar(512) NOT NULL COMMENT '標準名稱（如「釘宮理恵」）',
+  `aliasValue` varchar(512) NOT NULL COMMENT '別名值（如「kugimiya rie」）',
+  `note` text DEFAULT NULL COMMENT '備註說明',
+  `createdAt` datetime(6) DEFAULT current_timestamp(6) COMMENT '建立時間',
+  `updatedAt` datetime(6) DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6) COMMENT '更新時間',
+  PRIMARY KEY (`aliasID`),
+  UNIQUE KEY `uk_type_canonical_alias` (`aliasType`,`canonicalName`,`aliasValue`) USING HASH,
+  KEY `idx_type_canonical` (`aliasType`,`canonicalName`),
+  KEY `idx_canonical` (`canonicalName`),
+  KEY `idx_alias_value` (`aliasValue`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='別名對照表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aliases`
+--
+
+LOCK TABLES `aliases` WRITE;
+/*!40000 ALTER TABLE `aliases` DISABLE KEYS */;
+INSERT INTO `aliases` VALUES
+(1,'artist','釘宮理恵','kugimiya rie',NULL,'2025-12-01 20:30:51.986656','2025-12-01 20:30:51.986656'),
+(2,'artist','釘宮理恵','釘宮',NULL,'2025-12-01 20:30:52.187425','2025-12-01 20:30:52.187425'),
+(3,'artist','釘宮理恵','cv:釘宮理恵',NULL,'2025-12-01 20:30:52.383459','2025-12-01 20:30:52.383459'),
+(4,'artist','釘宮理恵','フェンリース',NULL,'2025-12-01 20:30:52.581559','2025-12-01 20:30:52.581559'),
+(5,'artist','釘宮理恵','フェンリース(cv:釘宮理恵)',NULL,'2025-12-01 20:30:52.777355','2025-12-01 20:30:52.777355'),
+(6,'artist','μ\'s','ミューズ',NULL,'2025-12-01 20:30:52.975995','2025-12-01 20:30:52.975995'),
+(7,'artist','μ\'s','muse',NULL,'2025-12-01 20:30:53.173229','2025-12-01 20:30:53.173229'),
+(8,'artist','μ\'s','μs',NULL,'2025-12-01 20:30:53.368698','2025-12-01 20:30:53.368698'),
+(9,'artist','Aqours','アクア',NULL,'2025-12-01 20:30:53.563679','2025-12-01 20:30:53.563679'),
+(10,'artist','Aqours','aqua',NULL,'2025-12-01 20:30:53.764836','2025-12-01 20:30:53.764836'),
+(11,'artist','スキマスイッチ','sukimaswitch',NULL,'2025-12-01 20:30:53.960445','2025-12-01 20:30:53.960445'),
+(12,'artist','スキマスイッチ','スキマ',NULL,'2025-12-01 20:30:54.161817','2025-12-01 20:30:54.161817'),
+(13,'artist','MYTH & ROID','MYTH&ROID',NULL,'2025-12-01 20:30:54.361052','2025-12-01 20:30:54.361052'),
+(14,'artist','MYTH & ROID','myth and roid',NULL,'2025-12-01 20:30:54.560081','2025-12-01 20:30:54.560081'),
+(15,'artist','RO-KYU-BU!','ろうきゅーぶ',NULL,'2025-12-01 20:30:54.756997','2025-12-01 20:30:54.756997'),
+(16,'artist','RO-KYU-BU!','ロウキュウブ',NULL,'2025-12-01 20:30:54.952766','2025-12-01 20:30:54.952766'),
+(17,'artist','ウマ娘','uma musume',NULL,'2025-12-01 20:30:55.147624','2025-12-01 20:30:55.147624'),
+(18,'artist','ウマ娘','スペシャルウィーク',NULL,'2025-12-01 20:30:55.345520','2025-12-01 20:30:55.345520'),
+(19,'artist','ウマ娘','サイレンススズカ',NULL,'2025-12-01 20:30:55.542374','2025-12-01 20:30:55.542374'),
+(20,'artist','ウマ娘','トウカイテイオー',NULL,'2025-12-01 20:30:55.745720','2025-12-01 20:30:55.745720'),
+(21,'title','ヘビーローテーション','ヘビロテ',NULL,'2025-12-01 20:30:55.943511','2025-12-01 20:30:55.943511'),
+(22,'title','ヘビーローテーション','heavy rotation',NULL,'2025-12-01 20:30:56.139708','2025-12-01 20:30:56.139708'),
+(23,'title','Music S.T.A.R.T!!','music start',NULL,'2025-12-01 20:30:56.365680','2025-12-01 20:30:56.365680'),
+(24,'title','Let It Go~ありのままで~','let it go',NULL,'2025-12-01 20:30:56.562604','2025-12-01 20:30:56.562604'),
+(25,'title','Let It Go~ありのままで~','ありのままで',NULL,'2025-12-01 20:30:56.760529','2025-12-01 20:30:56.760529'),
+(30,'artist','ゆいかおり(小倉唯,石原夏織)','小倉唯、石原夏織',NULL,'2025-12-01 23:09:01.219862','2025-12-01 23:09:01.219862');
+/*!40000 ALTER TABLE `aliases` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Temporary table structure for view `setlist`
 --
 
@@ -3568,7 +3627,7 @@ INSERT INTO `setlist_ori` VALUES
 ('dC8iK0p4cpU',1,1,310,'朝活/座り/t=6292s','0000-00-00 00:00:00.000000','0000-00-00 00:00:00.000000'),
 ('DDfZALJuB8E',1,1,935,NULL,'2025-11-28 13:32:28.085390','2025-11-28 13:32:28.085390'),
 ('DDfZALJuB8E',1,2,756,NULL,'2025-11-28 13:32:28.085390','2025-11-28 13:32:28.085390'),
-('DDfZALJuB8E',1,3,947,'初回(待確認)','2025-11-28 13:32:28.085390','2025-11-28 13:32:28.085390'),
+('DDfZALJuB8E',1,3,296,NULL,'2025-11-28 13:32:28.085390','2025-12-01 23:07:09.090310'),
 ('DDfZALJuB8E',1,4,948,'初回(待確認)','2025-11-28 13:32:28.085390','2025-11-28 13:32:28.085390'),
 ('DDfZALJuB8E',1,5,830,NULL,'2025-11-28 13:32:28.085390','2025-11-28 13:32:28.085390'),
 ('DDfZALJuB8E',1,6,791,NULL,'2025-11-28 13:32:28.085390','2025-11-28 13:32:28.085390'),
@@ -16659,4 +16718,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-12-01  3:00:01
+-- Dump completed on 2025-12-02  3:00:02
