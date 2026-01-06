@@ -1,9 +1,9 @@
 /*M!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19-11.7.2-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.19-11.8.5-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: mbdb
 -- ------------------------------------------------------
--- Server version	11.7.2-MariaDB-ubu2404
+-- Server version	11.8.5-MariaDB-ubu2404
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,7 +36,7 @@ CREATE TABLE `aliases` (
   KEY `idx_type_canonical` (`aliasType`,`canonicalName`),
   KEY `idx_canonical` (`canonicalName`),
   KEY `idx_alias_value` (`aliasValue`)
-) ENGINE=InnoDB AUTO_INCREMENT=214 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='別名對照表';
+) ENGINE=InnoDB AUTO_INCREMENT=213 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='別名對照表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `aliases` (
 
 LOCK TABLES `aliases` WRITE;
 /*!40000 ALTER TABLE `aliases` DISABLE KEYS */;
+set autocommit=0;
 INSERT INTO `aliases` VALUES
 (30,'artist','ゆいかおり(小倉唯,石原夏織)','小倉唯、石原夏織',NULL,'2025-12-01 23:09:01.219862','2025-12-01 23:09:01.219862'),
 (37,'artist','奥華子','奧華子',NULL,'2025-12-02 10:56:44.534544','2025-12-14 00:11:27.218354'),
@@ -173,6 +174,7 @@ INSERT INTO `aliases` VALUES
 (212,'artist','エミリア(高橋李依)','高橋李依',NULL,'2025-12-25 22:41:56.219292','2025-12-25 22:42:41.433759');
 /*!40000 ALTER TABLE `aliases` ENABLE KEYS */;
 UNLOCK TABLES;
+commit;
 
 --
 -- Temporary table structure for view `setlist`
@@ -227,6 +229,7 @@ CREATE TABLE `setlist_ori` (
 
 LOCK TABLES `setlist_ori` WRITE;
 /*!40000 ALTER TABLE `setlist_ori` DISABLE KEYS */;
+set autocommit=0;
 INSERT INTO `setlist_ori` VALUES
 ('_CHXwwEx_p0',1,1,746,'初回','0000-00-00 00:00:00.000000','0000-00-00 00:00:00.000000'),
 ('_CHXwwEx_p0',1,2,833,'初回','0000-00-00 00:00:00.000000','0000-00-00 00:00:00.000000'),
@@ -14547,6 +14550,7 @@ INSERT INTO `setlist_ori` VALUES
 ('ZzyqTkoId74',1,20,794,NULL,'2025-12-24 08:21:45.129798','2025-12-24 08:21:45.129798');
 /*!40000 ALTER TABLE `setlist_ori` ENABLE KEYS */;
 UNLOCK TABLES;
+commit;
 
 --
 -- Table structure for table `songlist`
@@ -14581,6 +14585,7 @@ CREATE TABLE `songlist` (
 
 LOCK TABLES `songlist` WRITE;
 /*!40000 ALTER TABLE `songlist` DISABLE KEYS */;
+set autocommit=0;
 INSERT INTO `songlist` VALUES
 (1,'adrenaline!!!','adrenaline!!!','TrySail','TrySail','アニソン','エロマンガ先生','','2025-11-28 00:43:28.439009','2025-12-22 19:43:53.257324'),
 (2,'ALIVE','ALIVE','ClariS','ClariS','アニソン','TVアニメ『リコリス・リコイル』OP','','2025-11-28 00:43:28.439009','2025-12-22 19:43:53.262776'),
@@ -15530,6 +15535,7 @@ INSERT INTO `songlist` VALUES
 (966,'いつも通りのI love you','Itsumodori no I love you','苺咲べりぃ','Maisaki Berry','オリジナル',NULL,'','2025-12-26 03:00:35.100854','2025-12-26 13:46:49.231361');
 /*!40000 ALTER TABLE `songlist` ENABLE KEYS */;
 UNLOCK TABLES;
+commit;
 
 --
 -- Table structure for table `streamlist`
@@ -15560,6 +15566,7 @@ CREATE TABLE `streamlist` (
 
 LOCK TABLES `streamlist` WRITE;
 /*!40000 ALTER TABLE `streamlist` DISABLE KEYS */;
+set autocommit=0;
 INSERT INTO `streamlist` VALUES
 ('_6k_utxyK_o','🌞┆本日は12月31日、土曜日です！ / Morning Movie','2022-12-30 23:00:00.000000','[\"まいにちべりぃ / Morning movie\"]','','2025-11-28 00:43:27.961636','2025-11-28 00:43:27.961636',1),
 ('_6kt5Tj5I1c','🍓 雑談 / TALK ┆おはなしませんか？','2024-02-12 13:00:00.000000','[\"雑談 / Chatting\"]','','2025-11-28 00:43:27.961636','2025-11-28 00:43:27.961636',1),
@@ -17059,6 +17066,7 @@ INSERT INTO `streamlist` VALUES
 ('ZzyqTkoId74','【  歌枠 】初見さんも常連さんも大歓迎！お休み前のお歌枠✨️  karaoke / Singing / 歌回【 苺咲べりぃ / Vtuber 】','2024-10-17 12:00:00.000000','[\"歌枠 / Singing\"]',NULL,'2025-12-24 00:39:07.943920','2025-12-24 08:21:23.821015',1);
 /*!40000 ALTER TABLE `streamlist` ENABLE KEYS */;
 UNLOCK TABLES;
+commit;
 
 --
 -- Dumping routines for database 'mbdb'
@@ -17091,4 +17099,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-12-30  3:10:05
+-- Dump completed on 2026-01-07  3:10:05
