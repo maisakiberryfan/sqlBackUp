@@ -34,7 +34,6 @@ CREATE TABLE `aliases` (
   PRIMARY KEY (`aliasID`),
   UNIQUE KEY `uk_type_canonical_alias` (`aliasType`,`canonicalName`,`aliasValue`) USING HASH,
   KEY `idx_type_canonical` (`aliasType`,`canonicalName`),
-  KEY `idx_canonical` (`canonicalName`),
   KEY `idx_alias_value` (`aliasValue`)
 ) ENGINE=InnoDB AUTO_INCREMENT=213 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='別名對照表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -214,7 +213,6 @@ CREATE TABLE `setlist_ori` (
   `createdAt` datetime(6) DEFAULT current_timestamp(6) COMMENT '建立時間',
   `updatedAt` datetime(6) DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6) COMMENT '更新時間',
   PRIMARY KEY (`streamID`,`segmentNo`,`trackNo`),
-  KEY `idx_segment_track` (`segmentNo`,`trackNo`),
   KEY `idx_songid` (`songID`),
   CONSTRAINT `fk_setlist_songID` FOREIGN KEY (`songID`) REFERENCES `songlist` (`songID`) ON UPDATE CASCADE,
   CONSTRAINT `fk_setlist_streamID` FOREIGN KEY (`streamID`) REFERENCES `streamlist` (`streamID`) ON UPDATE CASCADE,
@@ -17099,4 +17097,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-01-07  3:10:05
+-- Dump completed on 2026-01-09  3:10:05
