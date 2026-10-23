@@ -1,9 +1,9 @@
 /*M!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19-11.8.5-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.20-11.8.9-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: mbdb
 -- ------------------------------------------------------
--- Server version	11.8.5-MariaDB-ubu2404
+-- Server version	11.8.9-MariaDB-ubu2404
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -46,9 +46,9 @@ CREATE TABLE `aliases` (
 -- Dumping data for table `aliases`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `aliases` WRITE;
 /*!40000 ALTER TABLE `aliases` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `aliases` VALUES
 (30,'artist','ゆいかおり(小倉唯,石原夏織)','小倉唯、石原夏織',NULL,0,NULL,'2025-12-01 23:09:01.219862','2025-12-01 23:09:01.219862'),
 (37,'artist','奥華子','奧華子',NULL,0,NULL,'2025-12-02 10:56:44.534544','2025-12-14 00:11:27.218354'),
@@ -184,7 +184,8 @@ INSERT INTO `aliases` VALUES
 (220,'artist','=LOVE','＝LOVE',NULL,0,NULL,'2026-10-04 07:56:09.479513','2026-10-04 07:56:09.479513');
 /*!40000 ALTER TABLE `aliases` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Temporary table structure for view `setlist`
@@ -195,19 +196,19 @@ DROP TABLE IF EXISTS `setlist`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8mb4;
 /*!50001 CREATE VIEW `setlist` AS SELECT
- 1 AS `streamID`,
-  1 AS `YTLink`,
-  1 AS `time`,
-  1 AS `segmentNo`,
-  1 AS `trackNo`,
-  1 AS `songID`,
-  1 AS `songName`,
-  1 AS `songNameEn`,
-  1 AS `artist`,
-  1 AS `artistEn`,
-  1 AS `note`,
-  1 AS `startTime`,
-  1 AS `endTime` */;
+ NULL AS `streamID`,
+ NULL AS `YTLink`,
+ NULL AS `time`,
+ NULL AS `segmentNo`,
+ NULL AS `trackNo`,
+ NULL AS `songID`,
+ NULL AS `songName`,
+ NULL AS `songNameEn`,
+ NULL AS `artist`,
+ NULL AS `artistEn`,
+ NULL AS `note`,
+ NULL AS `startTime`,
+ NULL AS `endTime` */;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -240,9 +241,9 @@ CREATE TABLE `setlist_ori` (
 -- Dumping data for table `setlist_ori`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `setlist_ori` WRITE;
 /*!40000 ALTER TABLE `setlist_ori` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `setlist_ori` VALUES
 ('_CHXwwEx_p0',1,1,746,'初回','0000-00-00 00:00:00.000000','2026-07-04 23:28:26.230137',802,1074),
 ('_CHXwwEx_p0',1,2,833,'初回','0000-00-00 00:00:00.000000','2026-07-04 23:28:26.319460',1172,1461),
@@ -16669,7 +16670,8 @@ INSERT INTO `setlist_ori` VALUES
 ('ZzyqTkoId74',1,20,794,NULL,'2025-12-24 08:21:45.129798','2026-03-21 23:08:36.532680',12249,12418);
 /*!40000 ALTER TABLE `setlist_ori` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `songlist`
@@ -16703,9 +16705,9 @@ CREATE TABLE `songlist` (
 -- Dumping data for table `songlist`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `songlist` WRITE;
 /*!40000 ALTER TABLE `songlist` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `songlist` VALUES
 (1,'adrenaline!!!','adrenaline!!!','TrySail','TrySail','アニソン','エロマンガ先生','',272,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (2,'ALIVE','ALIVE','ClariS','ClariS','アニソン','TVアニメ『リコリス・リコイル』OP','',218,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
@@ -17694,7 +17696,8 @@ INSERT INTO `songlist` VALUES
 (1058,'どうか今だけは','Doka imadakewa','苺咲べりぃ','Maisaki Berry',NULL,NULL,'資訊待確認',NULL,'2026-10-17 00:10:38.378874','2026-10-17 00:10:38.378874');
 /*!40000 ALTER TABLE `songlist` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `streamlist`
@@ -17724,9 +17727,9 @@ CREATE TABLE `streamlist` (
 -- Dumping data for table `streamlist`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `streamlist` WRITE;
 /*!40000 ALTER TABLE `streamlist` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `streamlist` VALUES
 ('_6k_utxyK_o','🌞┆本日は12月31日、土曜日です！ / Morning Movie','2022-12-30 23:00:00.000000','[\"まいにちべりぃ / Morning movie\"]','','2025-11-28 00:43:27.961636','2025-11-28 00:43:27.961636',1,NULL),
 ('_6kt5Tj5I1c','🍓 雑談 / TALK ┆おはなしませんか？','2024-02-12 13:00:00.000000','[\"雑談 / Chatting\"]','','2025-11-28 00:43:27.961636','2025-11-28 00:43:27.961636',1,NULL),
@@ -19379,7 +19382,8 @@ INSERT INTO `streamlist` VALUES
 ('ZzyqTkoId74','【  歌枠 】初見さんも常連さんも大歓迎！お休み前のお歌枠✨️  karaoke / Singing / 歌回【 苺咲べりぃ / Vtuber 】','2024-10-17 12:00:00.000000','[\"歌枠 / Singing\"]',NULL,'2025-12-24 00:39:07.943920','2026-03-26 22:40:56.770844',1,1);
 /*!40000 ALTER TABLE `streamlist` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Dumping routines for database 'mbdb'
@@ -19412,4 +19416,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-10-22  3:10:03
+-- Dump completed on 2026-10-23 11:06:28
