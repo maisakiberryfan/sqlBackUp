@@ -19399,9 +19399,9 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
+/*!50001 SET collation_connection      = utf8mb4_uca1400_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY INVOKER */
 /*!50001 VIEW `setlist` AS select `so`.`streamID` AS `streamID`,concat('https://www.youtube.com/watch?v=',`so`.`streamID`,case when `so`.`startTime` is not null then concat('&t=',`so`.`startTime`) else '' end) AS `YTLink`,`sl`.`time` AS `time`,`so`.`segmentNo` AS `segmentNo`,`so`.`trackNo` AS `trackNo`,`so`.`songID` AS `songID`,`s`.`songName` AS `songName`,`s`.`songNameEn` AS `songNameEn`,`s`.`artist` AS `artist`,`s`.`artistEn` AS `artistEn`,`so`.`note` AS `note`,`so`.`startTime` AS `startTime`,`so`.`endTime` AS `endTime` from ((`setlist_ori` `so` left join `streamlist` `sl` on(`so`.`streamID` = `sl`.`streamID`)) left join `songlist` `s` on(`so`.`songID` = `s`.`songID`)) order by `sl`.`time` desc,`so`.`segmentNo`,`so`.`trackNo` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -19416,4 +19416,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-10-23 11:06:28
+-- Dump completed on 2026-10-23 13:33:40
