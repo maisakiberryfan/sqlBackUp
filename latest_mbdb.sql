@@ -39,7 +39,7 @@ CREATE TABLE `aliases` (
   KEY `idx_alias_value` (`aliasValue`),
   KEY `fk_aliases_songID` (`songID`),
   CONSTRAINT `fk_aliases_songID` FOREIGN KEY (`songID`) REFERENCES `songlist` (`songID`)
-) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='別名對照表';
+) ENGINE=InnoDB AUTO_INCREMENT=223 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='別名對照表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,9 @@ INSERT INTO `aliases` VALUES
 (217,'artist','熊田茜音&増井優花','熊田茜音',NULL,0,NULL,'2026-06-10 23:36:46.437367','2026-06-10 23:36:46.437367'),
 (218,'title','Hello Alone -Yui Ballade-','Hello Alone',617,617,NULL,'2026-07-02 00:04:24.051293','2026-07-02 00:04:24.051293'),
 (219,'artist','ハチワレ(CV:田中誠人)','ハチワレ',NULL,0,NULL,'2026-10-04 07:50:25.227284','2026-10-04 07:50:25.227284'),
-(220,'artist','=LOVE','＝LOVE',NULL,0,NULL,'2026-10-04 07:56:09.479513','2026-10-04 07:56:09.479513');
+(220,'artist','=LOVE','＝LOVE',NULL,0,NULL,'2026-10-04 07:56:09.479513','2026-10-04 07:56:09.479513'),
+(221,'title','キミのせいだよ。','キミのせいだよ',232,232,NULL,'2026-11-14 08:47:34.374357','2026-11-14 08:47:34.374357'),
+(222,'title','Start Roll','StartRoll',401,401,NULL,'2026-11-14 08:47:58.353310','2026-11-14 08:47:58.353310');
 /*!40000 ALTER TABLE `aliases` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -17080,7 +17082,7 @@ INSERT INTO `songlist` VALUES
 (229,'君のこころは輝いてるかい','kimi no kokoro ha kagayaiteru kai','Aqours','Aqours','アニソン','ラブライブ！','',279,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (230,'君ノ記憶','Kun No Kioku','mao','mao','アニソン','薄桜鬼','',NULL,'2025-11-28 00:43:28.439009','2025-12-22 13:43:36.000000'),
 (231,'君の知らない物語','Kimi no shiranai monogatari','supercell','supercell','アニソン','化物語','',342,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
-(232,'キミのせいだよ','Kimi no seida yo','苺咲べりぃ','Maisaki Berry','オリジナル','','',252,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
+(232,'キミのせいだよ。','Kimi no seida yo','苺咲べりぃ','Maisaki Berry','オリジナル',NULL,NULL,252,'2025-11-28 00:43:28.439009','2026-11-14 08:33:47.237592'),
 (233,'君をのせて','Kimi wo nosete','井上あずみ','Inoue Azumi','アニソン','天空の城ラピュタ','',197,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (234,'君色シグナル','Kimiiro Signal','春奈るな','Haruna Runa','アニソン','TVアニメ「冴えない彼女の育てかた」OP','',281,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (235,'君色に染まる','kimiiro ni somaru','TOKOTOKO(西沢さんP)','tokotoko','ボカロ','','',193,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
@@ -17249,7 +17251,7 @@ INSERT INTO `songlist` VALUES
 (398,'Starry Wish','Starry Wish','水瀬いのり','Minase inori','アニソン','TVアニメ『ViVid Strike!』ED','',245,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (399,'START:DASH!!','START:DASH!!','μ\'s','μ\'s','アニソン','ラブライブ！','',254,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (400,'Startear','Startear','春奈るな','Haruna Runa','アニソン','ソードアート・オンライン','',303,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
-(401,'StartRoll','StartRoll','苺咲べりぃ','Maisaki Berry','オリジナル','','',217,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
+(401,'Start Roll','Start Roll','苺咲べりぃ','Maisaki Berry','オリジナル',NULL,NULL,217,'2025-11-28 00:43:28.439009','2026-11-14 08:31:16.332949'),
 (402,'Stay Alive','Stay Alive ','エミリア(高橋李依)','Emilia(Takahashi rie)','アニソン','Re:ゼロから始める異世界生活','',265,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (403,'STEP','STEP','ClariS','ClariS','アニソン','ニセコイ','',252,'2025-11-28 00:43:28.439009','2026-03-23 01:58:48.248960'),
 (404,'Story','Story','AI','AI','','','',NULL,'2025-11-28 00:43:28.439009','2025-12-22 13:43:36.000000'),
@@ -19573,4 +19575,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-11-14  3:10:03
+-- Dump completed on 2026-11-14 11:24:53
